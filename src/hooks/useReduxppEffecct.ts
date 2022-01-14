@@ -12,6 +12,7 @@ export function useReduxppEffect(
 ) {
   const store = useStore();
   useIsomorphicLayoutEffect(() => {
+    if (!Array.isArray(acionTypes)) acionTypes = [acionTypes];
     const sub = store.effectOn(...acionTypes).subscribe(callback);
     return () => sub?.unsubscribe();
   }, [store]);
