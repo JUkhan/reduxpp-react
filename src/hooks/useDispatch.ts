@@ -1,6 +1,7 @@
-import { useStore } from "./useStore";
+import { AnyAction } from 'reduxpp';
+import { useStore } from './useStore';
 
 export function useDispatch() {
   const store = useStore();
-  return store.dispatch;
+  return (action: AnyAction) => store.dispatch(action);
 }

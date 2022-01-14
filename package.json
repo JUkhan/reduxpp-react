@@ -1,7 +1,7 @@
 {
   "name": "reduxpp-react",
-  "version": "1.0.0-dev.1",
-  "description": "",
+  "version": "1.0.4",
+  "description": "reduxpp-react",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "umd:main": "dist/index.umd.production.min.js",
@@ -59,20 +59,18 @@
     "typescript": "^4.5.4"
   },
   "peerDependencies": {
-    "react": ">=16.8.0"
+    "react": ">=16.8.0",
+    "reduxpp": ">=1.1.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JUkhan/reduxpp-react.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "jukhan",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JUkhan/reduxpp-react/issues"
   },
-  "homepage": "https://github.com/JUkhan/reduxpp-react#readme",
-  "dependencies": {
-    "reduxpp": "^1.0.0-dev-5"
-  }
+  "homepage": "https://github.com/JUkhan/reduxpp-react#readme"
 }
