@@ -3,16 +3,17 @@ import { useStore } from './useStore';
 import { shallowEqual } from 'reduxpp';
 import { useReduxppEffect } from './useReduxppEffecct';
 
-export function useSelectorByActions<S = any, R = any>(
+export function useSelectorByActions<TState = any, TSelected = any>(
   actions: string | string[],
-  selector: (state: S) => R
+  selector: (state: TState) => TSelected,
+  equalityFn?: (left: TSelected, right: TSelected) => boolean
 ) {
   const store = useStore();
   const [selectedState, setState] = React.useState(selector(store.getState()));
   let oldState = selectedState;
   useReduxppEffect(actions, () => {
     const newSelectedState = selector(store.getState());
-    if (!shallowEqual(newSelectedState, oldState)) {
+    if (!(equalityFn || shallowEqual)(newSelectedState, oldState)) {
       setState(newSelectedState);
       oldState = newSelectedState;
     }
