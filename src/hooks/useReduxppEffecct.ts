@@ -1,16 +1,21 @@
 import { useStore } from './useStore';
 import { useIsomorphicLayoutEffect } from '../utils/useIsomorphicLayoutEffect';
 import { EffectHandler } from 'reduxpp';
+import { ActionParam, ActionFn } from './typeHelper';
 
 export function useReduxppEffect(
-  acionTypes: string | string[],
+  acionTypes: ActionParam,
   callback: EffectHandler
 ) {
   const store = useStore();
   useIsomorphicLayoutEffect(() => {
-    let actions = acionTypes;
-    if (!Array.isArray(acionTypes)) actions = [acionTypes];
-    const sub = store.effectOn(...actions).subscribe(callback);
+    let actions: ActionFn[] = Array.isArray(acionTypes)
+      ? acionTypes
+      : [acionTypes];
+    const sub = store.subscribeForEffect(
+      actions.map((a) => a().type),
+      callback
+    );
     return () => sub?.unsubscribe();
   }, [store]);
 }

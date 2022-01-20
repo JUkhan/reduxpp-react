@@ -2,9 +2,10 @@ import React from 'react';
 import { useStore } from './useStore';
 import { shallowEqual } from 'reduxpp';
 import { useReduxppEffect } from './useReduxppEffecct';
+import { ActionParam } from './typeHelper';
 
 export function useSelectorByActions<TState = any, TSelected = any>(
-  actions: string | string[],
+  actions: ActionParam,
   selector: (state: TState) => TSelected,
   equalityFn?: (left: TSelected, right: TSelected) => boolean
 ) {

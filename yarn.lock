@@ -3105,10 +3105,10 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
-reduxpp@^1.5.4:
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/reduxpp/-/reduxpp-1.5.4.tgz#a23bafdad16e636e2b3bce4d59d7da1e4508554a"
-  integrity sha512-l5xDduH6Ma/Bj7RiRI3POdvhQOekwcgd52P2O4VmfZbTdLJUGnsA6g4xHkWwi/QAJ9b2ohMUAqOBCJ7lIF0B+w==
+reduxpp@^1.5.5:
+  version "1.5.5"
+  resolved "https://registry.yarnpkg.com/reduxpp/-/reduxpp-1.5.5.tgz#9003408415f2e4ed86168770513a1e92324e993b"
+  integrity sha512-xhazTtcLThLHphoeOb5yhoaDr60BnCvIpYQPVaivp70FZNkWY3gkylDnz63+wpY0Vy6N8U1Uu6ZIVm8bSPJ6jQ==
 
 regenerator-runtime@^0.13.4:
   version "0.13.9"
