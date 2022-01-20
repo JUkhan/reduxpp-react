@@ -1,19 +1,16 @@
 import { useStore } from './useStore';
 import { useIsomorphicLayoutEffect } from '../utils/useIsomorphicLayoutEffect';
-import { Action, PayloadAction } from 'reduxpp';
+import { EffectHandler } from 'reduxpp';
 
 export function useReduxppEffect(
   acionTypes: string | string[],
-  callback: (
-    getState: () => any,
-    action: Action | PayloadAction,
-    dispatch: (action: Action) => void
-  ) => void
+  callback: EffectHandler
 ) {
   const store = useStore();
   useIsomorphicLayoutEffect(() => {
-    if (!Array.isArray(acionTypes)) acionTypes = [acionTypes];
-    const sub = store.effectOn(...acionTypes).subscribe(callback);
+    let actions = acionTypes;
+    if (!Array.isArray(acionTypes)) actions = [acionTypes];
+    const sub = store.effectOn(...actions).subscribe(callback);
     return () => sub?.unsubscribe();
   }, [store]);
 }
